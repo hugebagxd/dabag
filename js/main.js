@@ -1,16 +1,16 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
     createSquares();
-    getNewWord();  // This will now correctly set the 'word' variable
+    getNewWord();  
 
     let guessedWords = [[]];
     let availableSpace = 1;
     let guessedWordCount = 0;
-    let isWordSubmitted = false;  // Flag to track if the word has been submitted
+    let isWordSubmitted = false;  
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
     function getNewWord() {
-        // Define an array of custom 5-letter words
+        // This hella retarded, but who cares?
         const customWords = [
             'which', 'there', 'their', 'about', 'would', 'thesse', 'other', 'words',
             'could', 'write', 'first', 'water', 'after', 'where', 'right', 'think',
@@ -335,8 +335,8 @@
             'jeets'
         ];
 
-        // Randomly select a word from the customWords array and assign it to the word variable
-        word = "jeets";
+        
+        word = "jeets"; //Don't look at this
         console.log("Selected word:", word);
     }
 
@@ -346,7 +346,7 @@
     }
 
     function updateGuessedWords(letter) {
-        if (isWordSubmitted) return; // Prevent typing if a word is submitted
+        if (isWordSubmitted) return; 
 
         const currentWordArr = getCurrentWordArr();
 
@@ -384,7 +384,8 @@
             return;
         }
 
-        const currentWord = currentWordArr.join("").toLowerCase(); // Convert to lowercase
+        const currentWord = currentWordArr.join("").toLowerCase(); 
+        // This also hella retarded, but who cares?
         const customWords = [
             'which', 'there', 'their', 'about', 'would', 'these', 'other', 'words',
             'could', 'write', 'first', 'water', 'after', 'where', 'right', 'think',
@@ -710,7 +711,7 @@
         ];
 
         if (!customWords.includes(currentWord)) {
-            window.alert("The word you entered probably exist, but it's not in my database brah (i'm still learning)!");
+            window.alert("Try another word, bitch!");
             return;
         }
 
@@ -728,23 +729,23 @@
         });
 
         guessedWordCount += 1;
-        isWordSubmitted = true;  // Set flag to true when a word is submitted
+        isWordSubmitted = true;
 
         if (currentWord === word) {
             window.alert("Congratulations!");
-            disableKeyboard();  // Disable keyboard after winning
-            return;  // Exit the function early if the word is guessed correctly
+            disableKeyboard();
+            return;  
         }
 
         if (guessedWords.length === 6) {
             window.alert(`Sorry, you have no more guesses! The word is ${word}.`);
-            disableKeyboard();  // Disable keyboard after losing
-            return;  // Exit the function early if no guesses are left
+            disableKeyboard();  
+            return;  
         }
 
         guessedWords.push([]);
-        availableSpace = guessedWordCount * 5 + 1; // Update available space for the next guess
-        isWordSubmitted = false;  // Reset flag for the next guess
+        availableSpace = guessedWordCount * 5 + 1; 
+        isWordSubmitted = false;  
     }
 
     function createSquares() {
@@ -760,7 +761,7 @@
     }
 
     function handleDeleteLetter() {
-        if (isWordSubmitted) return; // Prevent deletion if a word is submitted
+        if (isWordSubmitted) return; 
 
         const currentWordArr = getCurrentWordArr();
         if (currentWordArr.length > 0) {
@@ -784,7 +785,7 @@
 
     for (let i = 0; i < keys.length; i++) {
         keys[i].onclick = ({ target }) => {
-            if (isWordSubmitted) return; // Prevent interaction if a word is submitted
+            if (isWordSubmitted) return; 
 
             const letter = target.getAttribute("data-key");
 
@@ -802,13 +803,13 @@
         };
     }
 
-    // Call this function to reset game state
+    
     function resetGame() {
         guessedWords = [[]];
         availableSpace = 1;
         guessedWordCount = 0;
         isWordSubmitted = false;
-        enableKeyboard();  // Re-enable keyboard for new game
-        getNewWord();  // Get a new word
+        enableKeyboard();  
+        getNewWord();  
     }
 });

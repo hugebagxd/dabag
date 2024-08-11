@@ -9,6 +9,8 @@ body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+
+
 #container {
     display: flex;
     background-color: black;
@@ -101,4 +103,9 @@ header {
 
 .spacer-half {
     flex-grow: 0.5;
+}
+
+.smaller-text {
+    font-size: 0.8rem; /* Smaller font size */
+    line-height: 1.2; /* Optional: Adjust line height */
 }
