@@ -337,7 +337,7 @@
 
         
         word = "jeets"; //Don't look at this
-        console.log("Selected word:", word);
+        
     }
 
     function getCurrentWordArr() {
